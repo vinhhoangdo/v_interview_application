@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:interview_application/src/src.dart';
-import 'package:interview_application/src/utils/shared_prefs_utils.dart';
 
 class AuthProvider extends ChangeNotifier {
   LoginStatus _status = LoginStatus.unauthenticated;
@@ -52,7 +51,6 @@ class AuthProvider extends ChangeNotifier {
         (jsonMap as List).map((user) => User.fromJson(user)).toList();
     _user = users.firstWhere(
         (user) => username == user.username && password == user.password);
-    if (_user == null) return;
     cache(_user);
     _status = LoginStatus.authenticated;
     notifyListeners();

@@ -17,7 +17,6 @@ class _LoginPageState extends State<LoginPage> {
   final _scaffoldKey = GlobalKey<ScaffoldState>();
   static const snackBar = SnackBar(
     content: Text('Username/Password is incorrect'),
-    backgroundColor: Colors.red,
   );
 
   @override

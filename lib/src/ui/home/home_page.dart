@@ -35,15 +35,14 @@ class _HomePageState extends State<HomePage> {
         actions: [
           Consumer<AuthProvider>(
             builder: (context, authProvider, builder) {
-              final user = authProvider.user;
               return Row(
                 children: [
                   CircleAvatar(
-                    child:  IAImage(imagePath: user != null ? user.avatarUrl : ""),
+                    child:  IAImage(imagePath: SharedPrefsUtils().avatar),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                    child: Text(user != null ? user.name : ""),
+                    child: Text(SharedPrefsUtils().name),
                   ),
                   IconButton(
                     onPressed: () async {
